@@ -1,0 +1,74 @@
+# ============================================
+# DATA FILES - NEVER COMMIT
+# ============================================
+# Raw data (proprietary/confidential)
+data/
+*.csv
+*.parquet
+*.json
+*.xlsx
+*.xls
+*.zip
+*.gz
+*.tar
+
+# ============================================
+# ENVIRONMENT & SECRETS - NEVER COMMIT
+# ============================================
+.venv/
+venv/
+env/
+.env
+.env.local
+.env.*
+*.pem
+*.key
+credentials.json
+secrets.json
+config.yaml
+config.yml
+
+# ============================================
+# OUTPUT & GENERATED FILES
+# ============================================
+output/
+logs/
+*.log
+temp/
+tmp/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# ============================================
+# IDE & EDITOR FILES
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================
+# DOCKER (don't commit built images)
+# ============================================
+docker-compose.override.yml
+
+# ============================================
+# JUPYTER NOTEBOOKS (may contain data)
+# ============================================
+*.ipynb
+.ipynb_checkpoints/
+
+# ============================================
+# PROPRIETARY DOCUMENTS
+# ============================================
+*.docx
+*.pdf
+internal_notes/
+review/
+feedback/

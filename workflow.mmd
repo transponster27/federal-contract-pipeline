@@ -1,0 +1,58 @@
+graph TD
+    %% ==========================================
+    %% STYLE DEFINITIONS (Color Coding)
+    %% ==========================================
+    classDef source fill:#FFE4E1,stroke:#FF6B6B,stroke-width:2px,color:#333
+    classDef engine fill:#E0F7FA,stroke:#00BCD4,stroke-width:2px,color:#333
+    classDef done fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px,color:#333
+    classDef alert fill:#FFF3E0,stroke:#FF9800,stroke-width:2px,color:#333
+    classDef future fill:#F3E5F5,stroke:#9C27B0,stroke-width:2px,color:#333
+    classDef outcome fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px,color:#333
+
+    %% ==========================================
+    %% PHASE 1: DATA SCOPING & OPTIMIZATION (DONE)
+    %% ==========================================
+    subgraph Phase 1: Data Scoping & Memory Optimization [✅ COMPLETED]
+        direction TB
+        A[("📦 Raw Source Data<br>7 CSV Files<br>~14GB Total")]:::source -->|Challenge: Local RAM Overflow| B(("🐳 Docker Container<br>Hard Limit: 4GB RAM<br>2 CPU Cores")):::engine
+        
+        B --> C{"⚙️ Processing Engine<br>Chunk Size: 100,000 rows"}:::engine
+        C -->|Reason: Prevents memory spikes| D[("🧠 Type Optimization<br>int64 → int32<br>Strings → Category")]:::done
+        
+        D -->|Reason: 60% memory reduction| E[("📊 Assessment Output<br>JSON Report Generated")]:::outcome
+    end
+
+    %% ==========================================
+    %% KEY FINDINGS (THE REALITY CHECK)
+    %% ==========================================
+    subgraph Key Findings: The Data Reality [🔍 DISCOVERED]
+        direction TB
+        E --> F1["⚠️ 281,347 Negative Obligations<br>(Valid De-obligations, not errors)"]:::alert
+        E --> F2["⚠️ 99.4% Nulls in Address Line 2<br>(Dead weight, drop candidate)"]:::alert
+        E --> F3["⚠️ 58-60 Unique State Codes<br>(Needs territory/bad data mapping)"]:::alert
+        E --> F4["✅ 0% Nulls in UEI/DUNS<br>(Perfect for Entity Matching)"]:::done
+    end
+
+    %% ==========================================
+    %% PHASE 2: PRODUCTION ARCHITECTURE (PLANNED)
+    %% ==========================================
+    subgraph Phase 2: Production Architecture Upgrade [🚀 PLANNED NEXT]
+        direction TB
+        F1 & F2 & F3 & F4 --> G
+        
+        G[("🔄 Format Upgrade<br>CSV ➔ Parquet")]:::future -->|Reason: 70% less storage, 10x faster reads| H
+        
+        H[("🌟 Schema Refactoring<br>Wide Table ➔ Star Schema")]:::future -->|Reason: Eliminates redundancy, speeds up BI queries| I
+        
+        I[("🔗 Business Enrichment<br>NAICS API + De-obligation Flags")]:::future -->|Reason: Adds business context, fixes financial logic| J
+    end
+
+    %% ==========================================
+    %% FINAL GOAL
+    %% ==========================================
+    J --> K(("🎯 End State:<br>Scalable, Reliable,<br>Dashboard-Ready Pipeline")):::done
+
+    %% ==========================================
+    %% LINK STYLING
+    %% ==========================================
+    linkStyle default stroke:#555,stroke-width:2px
